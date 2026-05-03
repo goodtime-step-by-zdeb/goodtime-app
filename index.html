@@ -16,6 +16,12 @@
   <input id="photoInput" type="file" accept="image/*" capture="environment">
   <button class="btn green" onclick="startWork()">▶ Arbeitszeit starten<small>Testmodus V55.22</small></button>
   <button class="btn yellow" onclick="pickPhoto()">✓ Geschafft<small>Foto auswählen oder aufnehmen</small></button>
+  <select id="projektSelect">
+  <option value="Prüfen">Prüfen</option>
+  <option value="HTS Aufbau">HTS Aufbau</option>
+  <option value="Indutainer">Indutainer</option>
+  <option value="Bühne">Bühne</option>
+</select>
   <button class="btn red" onclick="finishAndUpload()">■ Feierabend<small>Foto zu Supabase hochladen</small></button>
   <div class="status">Upload-Ziel: goodtime-photos</div>
 </div>
@@ -78,7 +84,7 @@ async function finishAndUpload(){
     file_path: objectPath,
     photo_typ: "feierabend",
 benutzer_id: CURRENT_USER_ID,
-projekt: "Prüfen"
+projekt: document.getElementById("projektSelect").value
   })
 });
   }catch(err){
