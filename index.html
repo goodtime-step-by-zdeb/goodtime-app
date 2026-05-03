@@ -24,6 +24,7 @@ const VERSION = 'GoodTime V55.22 Direct REST Upload';
 const SUPABASE_URL = 'https://ipzodobkasmvyltosmsj.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_LTO22LDasgxYjFxjS6KP1g_lB0q44AB';
 const BUCKET = 'goodtime-photos';
+  let CURRENT_USER_ID = 1;
 let selectedFile = null;
 function log(title, data){
   const el=document.getElementById('debug');
@@ -76,7 +77,7 @@ async function finishAndUpload(){
   body: JSON.stringify({
     file_path: objectPath,
     photo_typ: "feierabend",
-    benutzer_id: 1,
+benutzer_id: CURRENT_USER_ID,
 projekt: objectPath
   })
 });
